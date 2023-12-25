@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Your One-Time Verification Code</title>
+        <style>
+            /* Add your styles here */
+            body {
+                font-family: "Arial", sans-serif;
+                line-height: 1.6;
+            }
+
+            .container {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+
+            /* Add more styles as needed */
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <h2>Your One-Time Verification Code</h2>
+            <p>Dear <%= user.username %>,</p>
+            <p>
+                Thank you for choosing Pharmazone. We're thrilled to have you on board! To ensure the security of your account, please complete the
+                verification process by entering the following one-time verification code:
+            </p>
+            <p><strong>Verification Code:</strong> <%= user.otp %></p>
+            <p><strong>Note:</strong> Please enter this code within the next 10 minutes.</p>
+            <p>If you didn't request this code or have any concerns, please contact our support team immediately.</p>
+            <p>Thank you for your cooperation.</p>
+            <p>Best regards,</p>
+            <p><strong>[Pharmazone]</strong></p>
+        </div>
+    </body>
+</html>
