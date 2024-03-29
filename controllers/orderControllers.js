@@ -45,31 +45,3 @@ exports.getAllOrder = catchAsync(async (req, res, next) => {
     }
     res.status(200).json({ order })
 })
-
-
-
-exports.updateOrder = catchAsync(async (req, res, next) => {
-    const { state,deliveryID } = req.body
-    const order = await Order.findById(req.params.id)
-
-    if (!order) {
-        return next(new AppError("No order found", 404))
-    }
-
-    order.state = state
-    order.delivery=deliveryID;
-    await order.save()
-
-    res.status(200).json({ order })
-})
-
-exports.deleteOrder = catchAsync(async (req, res, next) => {
-    const user = req.user
-    const order = await Order.findByIdAndDelete(req.params.id) 
-
-    if (!order) {
-        return next(new AppError("No order found", 404))
-    }
-
-    res.status(204).json()
-})

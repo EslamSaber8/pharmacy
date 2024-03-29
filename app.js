@@ -9,7 +9,6 @@ const orderRouters = require("./routers/orderRoutes")
 const chatRouters = require("./routers/messageRoutes")
 const offerRouters = require("./routers/offerRoutes")
 const wishlistRouters = require("./routers/wishlistRoutes")
-const deliveryRouters=require("./routers/deliveryRoutes")
 const AppError = require("./utils/appError")
 const app = express()
 const cors = require("cors")
@@ -18,7 +17,7 @@ app.use(express.json())
 app.use(morgan("dev"))
 app.use(cors())
 app.use("/uploads", express.static("uploads"))
-app.use("/api", productRoutes, wishlistRouters,userRouters,authRouters,chatRouters,categoryRouters,orderRouters,cartRouters,offerRouters,deliveryRouters)
+app.use("/api", productRoutes, wishlistRouters,userRouters,authRouters,chatRouters,categoryRouters,orderRouters,cartRouters,offerRouters)
 
 
 app.get("/", (req, res) => {

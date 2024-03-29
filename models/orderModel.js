@@ -18,10 +18,6 @@ const orderSchema = new mongoose.Schema({
         },
     ],
     address: { type: String, required: [true, "Please provide an address"] },
-    delivery:{
-       type: mongoose.Schema.ObjectId,
-       ref:"Delivery"
-    },
     long: { type: Number, required: [true, "Please provide an location"] },
     lat: { type: Number, required: [true, "Please provide a location"] },
     totalPrice: Number,
@@ -47,13 +43,6 @@ orderSchema.pre(/^find/, function (next) {
     this.populate({
         path: "userId",
         select: "username phone",
-    })
-    next()
-})
-orderSchema.pre(/^find/, function (next) {
-    this.populate({
-        path: "Delivery",
-        select: "name phone",
     })
     next()
 })
